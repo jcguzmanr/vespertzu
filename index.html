@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Vesper Tzu landing page. Minimal grid background with a coming soon announcement."
+      content="Vesper Tzu. Directorio y datos de contacto sobre una grilla minimal."
     />
     <meta name="robots" content="index,follow" />
     <meta name="theme-color" content="#f3f3ef" />
@@ -13,7 +13,7 @@
     <meta property="og:title" content="Vesper Tzu" />
     <meta
       property="og:description"
-      content="Minimal grid landing page. Coming soon."
+      content="Directorio y datos de contacto."
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://example.com/og-image.jpg" />
@@ -23,7 +23,7 @@
     <meta name="twitter:title" content="Vesper Tzu" />
     <meta
       name="twitter:description"
-      content="Minimal grid landing page. Coming soon."
+      content="Directorio y datos de contacto."
     />
     <meta name="twitter:image" content="https://example.com/og-image.jpg" />
 
@@ -32,34 +32,45 @@
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23f3f3ef'/%3E%3Ccircle cx='8' cy='8' r='2' fill='%236c6c67'/%3E%3C/svg%3E"
     />
 
-    <title>Vesper Tzu | Próximamente</title>
+    <title>Vesper Tzu</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <canvas id="grid-canvas" aria-hidden="true"></canvas>
 
-    <main class="hero" aria-label="Landing section">
-      <div class="hero__content">
+    <main class="hero" aria-label="Vesper Tzu">
+      <section class="hero__title-wrap" aria-label="Título principal">
         <h1 class="hero__title" id="hero-title">VESPER TZU</h1>
-        <a class="hero__cta" href="#" aria-label="Próximamente">Próximamente</a>
-      </div>
+      </section>
 
-      <aside class="hero__info" aria-label="Contact information">
-        <p class="hero__info-block">
-          LIMA - PERU<br />
-          AV. SANTA CRUZ<br />
-          #1068 CP 15074
-        </p>
+      <aside class="hero__panel" aria-label="Directorio y datos de contacto">
+        <ul class="hero__names" aria-label="Nombres">
+          <li>DANIEL BARCLAY</li>
+          <li>ABEL BENTÍN</li>
+          <li>LUIS CARTOLÍN</li>
+          <li>HARRY CHÁVEZ</li>
+          <li>ANDREA GRAU</li>
+          <li>VALERIA GUERRA - GARCÍA</li>
+          <li>CARLOS JESÚS</li>
+          <li>MARIALEJANDRA LOZANO</li>
+          <li>YONE MAKINO</li>
+          <li>JOSÉ ANTONIO 'CUCO' MORALES</li>
+          <li>IGNACIO NOGUEROL</li>
+          <li>ALEJANDRA PÉREZ</li>
+          <li>MICHELLE PRAZAK</li>
+          <li>SALETA ROSÓN</li>
+          <li>RODRIGO TAFUR</li>
+          <li>INÉS WIESE</li>
+          <li>MARIA YZAGA</li>
+        </ul>
 
-        <p class="hero__info-label">Hours</p>
-        <p class="hero__info-block">MONDAY to SATURDAY 9h00 - 19h00</p>
-
-        <p class="hero__info-label">Office Hours</p>
-        <p class="hero__info-block">
-          MONDAY to FRIDAY 11h00 - 19h00<br />
-          +51 1 6876427<br />
-          +51 959179329
-        </p>
+        <div class="hero__contact">
+          <p class="hero__contact-line">
+            <a href="mailto:hola@vespertzu.com">hola@vespertzu.com</a>
+          </p>
+          <p class="hero__contact-line">Av. Santa Cruz 1068</p>
+          <p class="hero__contact-line">Miraflores - Lima</p>
+        </div>
       </aside>
     </main>
 

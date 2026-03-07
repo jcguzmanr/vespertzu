@@ -4,9 +4,9 @@ const LINE_COLOR = "rgba(152, 152, 144, 0.24)";
 const DOT_COLOR = "rgba(116, 116, 110, 0.48)";
 const LINE_WIDTH = 1;
 const DOT_RADIUS = 2.2;
-const CELL_DESKTOP = 280;
-const CELL_MOBILE = 172;
 const MOBILE_BREAKPOINT = 768;
+const DESKTOP_COLUMNS = 12;
+const MOBILE_COLUMNS = 6;
 const MAX_PARALLAX_SHIFT = 6;
 
 // Timing constants (ms)
@@ -14,7 +14,6 @@ const LINES_DURATION = 980;
 const DOTS_DURATION = 560;
 const DOTS_WAVE_PORTION = 0.45;
 const TITLE_DELAY = 120;
-const CTA_DELAY_AFTER_TITLE = 180;
 
 const canvas = document.getElementById("grid-canvas");
 const ctx = canvas.getContext("2d", { alpha: false });
@@ -24,7 +23,7 @@ const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").match
 let width = 0;
 let height = 0;
 let dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
-let cellSize = CELL_DESKTOP;
+let cellSize = 0;
 
 let introStart = 0;
 let introFrame = 0;
@@ -51,18 +50,9 @@ function clamp01(v) {
   return Math.max(0, Math.min(1, v));
 }
 
-function lerp(a, b, t) {
-  return a + (b - a) * t;
-}
-
 function getCellSize(viewportWidth) {
-  if (viewportWidth <= MOBILE_BREAKPOINT) {
-    const ratio = clamp01((viewportWidth - 320) / (MOBILE_BREAKPOINT - 320));
-    return Math.round(lerp(CELL_MOBILE, 224, ratio));
-  }
-
-  const ratio = clamp01((viewportWidth - MOBILE_BREAKPOINT) / (1440 - MOBILE_BREAKPOINT));
-  return Math.round(lerp(236, CELL_DESKTOP, ratio));
+  const columnCount = viewportWidth <= MOBILE_BREAKPOINT ? MOBILE_COLUMNS : DESKTOP_COLUMNS;
+  return viewportWidth / columnCount;
 }
 
 function resizeCanvas() {
@@ -179,17 +169,13 @@ function runIntroFrame(now) {
 
 function revealContent() {
   if (reduceMotion) {
-    hero.classList.add("hero--show-title", "hero--show-cta");
+    hero.classList.add("hero--show-title");
     return;
   }
 
   window.setTimeout(() => {
     hero.classList.add("hero--show-title");
   }, TITLE_DELAY);
-
-  window.setTimeout(() => {
-    hero.classList.add("hero--show-cta");
-  }, TITLE_DELAY + CTA_DELAY_AFTER_TITLE);
 }
 
 function onPointerMove(event) {
