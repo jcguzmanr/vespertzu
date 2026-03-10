@@ -105,6 +105,42 @@ body {
   text-decoration: none;
 }
 
+.hero__contact-line,
+.hero__contact-line a,
+.hero__contact-line--static {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.hero__social {
+  margin-top: 0.65rem;
+}
+
+.hero__social a {
+  justify-content: flex-start;
+}
+
+.hero__contact-icon {
+  width: 1.2rem;
+  height: 1.2rem;
+  flex: 0 0 auto;
+}
+
+.hero__social-icon {
+  width: 1.45rem;
+  height: 1.45rem;
+}
+
+.hero__contact-line--static {
+  color: inherit;
+}
+
+.hero__contact a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
 .hero__contact a:focus-visible {
   outline: 2px solid var(--focus);
   outline-offset: 2px;
